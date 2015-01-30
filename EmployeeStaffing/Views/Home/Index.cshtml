@@ -1,0 +1,14 @@
+﻿@model EmployeeStaffing.Models.StaffingResultViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="form">
+    @Html.Partial("_StaffingParametersForm", Model.Parameters)
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.LabelFor(x => x.EndDate): <span>@Model.EndDate</span>
+    </div>
+</div>

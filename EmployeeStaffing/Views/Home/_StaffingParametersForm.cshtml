@@ -1,0 +1,69 @@
+﻿@model EmployeeStaffing.Models.StaffingParameters
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>StaffingParameters</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StardDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StardDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StardDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Locale, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Locale, new SelectList(new [] {"nl-NL", "pt-PT"}), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Locale, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vacations1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                Start: @Html.EditorFor(model => model.Vacations1.StartDate, new { htmlAttributes = new { @class = "form-control" } }) 
+                End: @Html.EditorFor(model => model.Vacations1.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vacations2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                Start: @Html.EditorFor(model => model.Vacations2.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                End: @Html.EditorFor(model => model.Vacations2.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vacations3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                Start: @Html.EditorFor(model => model.Vacations3.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                End: @Html.EditorFor(model => model.Vacations3.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calculate" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
